@@ -8,15 +8,19 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-#
-default: &default
+##
+#default: &default
+#  adapter: mysql2
+#  encoding: utf8
+#  pool: 5
+#  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  #<<: *default
   adapter: mysql2
   encoding: utf8
   pool: 5
   socket: /var/run/mysqld/mysqld.sock
-
-development:
-  <<: *default
   username: <%=ENV['mysql_user']%>
   password: <%=ENV['mysql_pwd']%>
   database: todoapp_capistrano_development
@@ -24,9 +28,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: todoapp_capistrano_test
+#test:
+#  <<: *default
+#  database: todoapp_capistrano_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -57,4 +61,5 @@ production:
   database: todoapp_capistrano_production
   username: <%=ENV['mysql_user']%>
   password: <%=ENV['mysql_password']%>
+  socket: /var/run/mysqld/mysqld.sock
   #socket: /var/lib/mysqld/mysqld.sock
