@@ -5,13 +5,14 @@ server '139.59.1.199',  roles: [:web, :app, :db], primary: true
 set :application, 'todoapp_capistrano'
 set :repo_url, 'git@github.com:ruby4srinivas/todoapp_capistrano.git'
 set :user, 'demo'
-set :rails_env, 'production' #just added
+
 set :puma_threads, [4,16]
 set :puma_workers, 0
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        true # changed false to true
 set :stage,           :production
+set :rails_env,       :production #just added
 set :deploy_via,      :copy #remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
