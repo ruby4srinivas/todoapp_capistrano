@@ -15,15 +15,15 @@
 #  pool: 5
 #  socket: /var/run/mysqld/mysqld.sock
 
-development:
-  #<<: *default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  socket: /var/run/mysqld/mysqld.sock
-  username: <%=ENV['mysql_user']%>
-  password: <%=ENV['mysql_pwd']%>
-  database: todoapp_capistrano_development
+#development:
+#  #<<: *default
+#  adapter: mysql2
+#  encoding: utf8
+#  pool: 5
+#  socket: /var/run/mysqld/mysqld.sock
+#  username: <%=ENV['mysql_user']%>
+#  password: <%=ENV['mysql_pwd']%>
+#  database: todoapp_capistrano_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -59,7 +59,8 @@ production:
   pool: 5
   timeout: 5000
   database: todoapp_capistrano_production
-  username: <%=ENV['mysql_user']%>
+  username: demo
+  #<%=ENV['mysql_user']%>
   password: <%=ENV['mysql_password']%>
   socket: /var/run/mysqld/mysqld.sock
   #socket: /var/lib/mysqld/mysqld.sock
