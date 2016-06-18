@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
+  host: 139.59.1.199
   database: todoapp_capistrano_production
   username: <%=ENV['mysql_user']%>
   password: <%=ENV['mysql_password']%>
+  socket: /var/lib/mysqld/mysqld.sock
