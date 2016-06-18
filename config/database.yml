@@ -61,6 +61,7 @@ production:
   database: todoapp_capistrano_production
   username: demo
   #<%=ENV['mysql_user']%>
-  password: <%=ENV['mysql_password']%>
+  password: demo
+  #<%=ENV['mysql_password']%>
   socket: /var/run/mysqld/mysqld.sock
   #socket: /var/lib/mysqld/mysqld.sock
