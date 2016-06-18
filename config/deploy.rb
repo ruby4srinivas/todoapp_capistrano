@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
-
-server '139.59.1.199', port: 80, roles: [:web, :app, :db], primary: true
+# commented port: 4567
+server '139.59.1.199',  roles: [:web, :app, :db], primary: true
 set :application, 'todoapp_capistrano'
 set :repo_url, 'git@github.com:ruby4srinivas/todoapp_capistrano.git'
 set :user, 'demo'
@@ -9,7 +9,7 @@ set :puma_threads, [4,16]
 set :puma_workers, 0
 # Don't change these unless you know what you're doing
 set :pty,             true
-set :use_sudo,        false
+set :use_sudo,        true # changed false to true
 set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
